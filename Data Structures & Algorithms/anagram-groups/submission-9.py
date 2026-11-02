@@ -1,0 +1,16 @@
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        # make hashmap with key: String and Value as : List[str]
+        dic = {}
+        for word in strs:
+            key = "".join(sorted(word))
+            if(key in dic): 
+                dic[key].append(word)
+            else:
+                dic[key] = []
+                dic[key].append(word)
+        ans = []
+        for value in dic.values():
+            ans.append(value)
+        return ans
+        
